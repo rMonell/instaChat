@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
-import socketIOClient from "socket.io-client"
+import openSocket from "socket.io-client"
 
 import ChannelSelection from './auth/ChannelSelection'
 
@@ -11,7 +11,7 @@ const App = () => {
     const host = '127.0.0.1'
     const port = '8080'
 
-    setSocket(socketIOClient(host + ':' + port))
+    setSocket(openSocket(host + ':' + port))
   }, [])
 
   return (
