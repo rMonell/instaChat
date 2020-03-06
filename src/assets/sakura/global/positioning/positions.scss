@@ -1,0 +1,100 @@
+@mixin getextends($extendList, $selector) {
+    @each $prefix, $value in $extendList {
+        &#{$prefix} {
+            @extend #{$selector};
+            #{$value}: 0;
+        }
+    }
+}
+
+.position {
+    &-relative { position: relative }
+
+    &-absolute {
+        position: absolute !important;
+
+        &-t, &-r, &-b, &-l, &-v, &-h, &-c { @extend .position-absolute }
+
+        &-t {
+            top: 0;
+            @include getextends((r: right, b: bottom, l: left), '.position-absolute-t');
+        }
+
+        &-r {
+            right: 0;
+            @include getextends((t: top, b: bottom, l: left), '.position-absolute-r');
+        }
+
+        &-b {
+            bottom: 0;
+            @include getextends((t: top, r: right, l: left), '.position-absolute-b');
+        }
+
+        &-l {
+            left: 0;
+            @include getextends((t: top, r: right, b: bottom), '.position-absolute-l');
+        }
+
+        &-v {
+            top: 50%;
+            transform: translateY(-50%);
+            @include getextends((r: right, l: left), '.position-absolute-v');
+        }
+
+        &-h {
+            top: 50%;
+            transform: translateY(-50%);
+            @include getextends((t: top, b: bottom), '.position-absolute-h');
+        }
+
+        &-c {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &-fixed {
+        position: fixed;
+
+        &-t, &-r, &-b, &-l, &-v, &-h, &-c { @extend .position-fixed }
+
+        &-t {
+            top: 0;
+            @include getextends((r: right, b: bottom, l: left), '.position-fixed-t');
+        }
+
+        &-r {
+            right: 0;
+            @include getextends((t: top, b: bottom, l: left), '.position-fixed-r');
+        }
+
+        &-b {
+            bottom: 0;
+            @include getextends((t: top, r: right, l: left), '.position-fixed-b');
+        }
+
+        &-l {
+            left: 0;
+            @include getextends((t: top, r: right, b: bottom), '.position-fixed-l');
+        }
+
+        &-v {
+            top: 50%;
+            transform: translateY(-50%);
+            @include getextends((r: right, l: left), '.position-fixed-v');
+        }
+
+        &-h {
+            top: 50%;
+            transform: translateY(-50%);
+            @include getextends((t: top, b: bottom), '.position-fixed-h');
+        }
+
+        &-c {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}

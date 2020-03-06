@@ -1,0 +1,95 @@
+/********************
+* Titres / Textes / Liens
+*/
+
+.title, .title { line-height: 1.25em }
+
+.title {
+	font-size: $title-size__redular;
+
+	&-l { font-size: $title-size__big }
+	&-m { font-size: $title-size__redular }
+	&-s { font-size: $title-size__small }
+	&-t { font-size: $title-size__tiny }
+}
+
+
+.text {
+	font-size: $text-size__regular;
+	
+	&-s { font-size: $text-size__small }
+}
+
+.link {
+	font-size: $text-size__regular;
+	font-weight: 500;
+	color: $color-primary;
+	text-decoration: none;
+	cursor: pointer;
+
+	&:hover { text-decoration: underline }
+}
+
+.skr-hint {
+	position: relative;
+
+	&:hover .skr-hint__hint {
+		transform: translate(-50%, 120%);
+		opacity: 1;
+	}
+
+	&__hint {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translate(-50%, 100%);
+		opacity: 0;
+		display: inline-block;
+		border-radius: $block-border__radius;
+		background-color: #192957;
+		color: #FFFFFF;
+		font-size: $text-size__small;
+		line-height: 1.4em;
+		font-weight: 500;
+		padding: 6px 10px;
+		transition: transform $delay__fast ease, opacity $delay__fast ease;
+
+		&:before {
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: rotate(45deg) translateX(-50%);
+			width: 6px;
+			height: 6px;
+			background-color: #192957;
+			content: '';
+			z-index: -1;
+		}
+	}
+}
+
+
+
+
+/********************
+* Positionnement / Style
+*/
+
+.align {
+	&-left { text-align: left }
+	&-center { text-align: center }
+	&-right { text-align: right }
+}
+
+.font {
+	&-900 { font-weight: 900 }
+	&-800 { font-weight: 800 }
+	&-700 { font-weight: 700 }
+	&-600 { font-weight: 600 }
+	&-500 { font-weight: 500 }
+	&-400 { font-weight: 400 }
+	&-300 { font-weight: 300 }
+	&-100 { font-weight: 100 }
+}
+
+.uppercase { text-transform: uppercase }

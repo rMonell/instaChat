@@ -1,0 +1,66 @@
+.rounded {
+    border-radius: .25rem;
+
+    &-ml { border-radius: 4rem }
+    &-m { border-radius: 1rem }
+    &-s { border-radius: .25rem }
+
+    &-semi { border-radius: 50rem }
+    &-full { border-radius: 50% }
+
+    &-top {
+        border-top-right-radius: .25rem;
+        border-bottom-right-radius: .25rem;
+
+        &-semi {
+            border-top-right-radius: 50rem;
+            border-bottom-right-radius: 50rem;
+        }
+        &-full {
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+    }
+
+    &-right {
+        border-top-right-radius: .25rem;
+        border-bottom-right-radius: .25rem;
+
+        &-semi {
+            border-top-right-radius: 50rem;
+            border-bottom-right-radius: 50rem;
+        }
+        &-full {
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
+        }
+    }
+
+    &-bottom {
+        border-bottom-right-radius: .25rem;
+        border-bottom-left-radius: .25rem;
+
+        &-semi {
+            border-bottom-right-radius: 50rem;
+            border-bottom-left-radius: 50rem;
+        }
+        &-full {
+            border-bottom-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+        }
+    }
+
+    &-left {
+        border-top-left-radius: .25rem;
+        border-bottom-left-radius: .25rem;
+
+        &-semi {
+            border-top-left-radius: 50rem;
+            border-bottom-left-radius: 50rem;
+        }
+        &-full {
+            border-top-left-radius: 50%;
+            border-bottom-left-radius: 50%;
+        }
+    }
+}

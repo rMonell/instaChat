@@ -1,0 +1,57 @@
+.alert {
+	display: flex;
+	align-items: center;
+	border-radius: $block-border__radius;
+	padding: 0 $space-m;
+	overflow: hidden;
+	opacity: 0;
+	height: 0;
+	animation: toggleAlert 2.5s ease;
+
+	i { margin-right: $space-m }
+	
+	&-error, &-warning, &-info { @extend .alert }
+
+	&-error {
+		background-color: $color-error;
+		color: $color-error__contrast;
+	}
+
+	&-warning {
+		background-color: $color-error;
+		color: $color-error__contrast;
+	}
+
+	&-info {
+		background-color: $color-error;
+		color: $color-error__contrast;
+	}
+}
+
+@keyframes toggleAlert {
+	0% {
+		padding: 0 $space-m;
+		opacity: 0;
+	}
+  
+	20% {
+		padding: $space-m;
+		opacity: 1;
+		margin: $space-m 0;
+		height: auto;
+	}
+  
+	80% {
+		padding: $space-m;
+		opacity: 1;
+		margin: $space-m 0;
+		height: auto;
+	}
+
+	100% {
+		padding: 0 $space-m;
+		opacity: 0;
+		margin: 0;
+		height: 0;
+	}
+}

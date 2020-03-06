@@ -1,0 +1,153 @@
+/********************
+* Margins
+*/
+
+.m {
+	@each $prefix, $size in $sizes { &-#{$prefix} { margin: $size } }
+
+	&-auto { margin: auto }
+}
+
+.mh {
+	@each $prefix, $size in $sizes {
+		&-#{$prefix} {
+			margin-left: $size;
+			margin-right: $size;
+		}
+	}
+
+	&-auto {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.mv {
+	@each $prefix, $size in $sizes {
+		&-#{$prefix} {
+			margin-top: $size;
+			margin-bottom: $size;
+		}
+	}
+
+	&-auto {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+}
+
+.mt {
+	@each $prefix, $size in $sizes { &-#{$prefix} { margin-top: $size } }
+
+	&-auto { margin-top: auto }
+}
+
+.mr {
+	@each $prefix, $size in $sizes { &-#{$prefix} { margin-right: $size } }
+
+	&-auto { margin-right: auto }
+}
+
+.mb {
+	@each $prefix, $size in $sizes { &-#{$prefix} { margin-bottom: $size } }
+
+	&-auto { margin-bottom: auto }
+}
+
+.ml {
+	@each $prefix, $size in $sizes { &-#{$prefix} { margin-left: $size } }
+
+	&-auto { margin-left: auto }
+}
+
+
+
+
+/********************
+* Paddings
+*/
+
+.p { @each $prefix, $size in $sizes { &-#{$prefix} { padding: $size } } }
+
+.ph {
+	@each $prefix, $size in $sizes {
+		&-#{$prefix} {
+			padding-left: $size;
+			padding-right: $size;
+		}
+	}
+}
+
+.pv {
+	@each $prefix, $size in $sizes {
+		&-#{$prefix} {
+			padding-top: $size;
+			padding-bottom: $size;
+		}
+	}
+}
+
+.pt { @each $prefix, $size in $sizes { &-#{$prefix} { padding-top: $size } } }
+.pr { @each $prefix, $size in $sizes { &-#{$prefix} { padding-right: $size } } }
+.pb { @each $prefix, $size in $sizes { &-#{$prefix} { padding-bottom: $size } } }
+.pl { @each $prefix, $size in $sizes { &-#{$prefix} { padding-left: $size } } }
+
+
+/********************
+* Margin boxes
+*/
+
+.mbox {
+	@each $prefix, $size in $sizes {
+		&-t#{$prefix} > * {
+			margin-top: $size;
+			&:last-child { margin-top: 0 }
+		}
+
+		&-r#{$prefix} > * {
+			margin-right: $size;
+			&:last-child { margin-right: 0 }
+		}
+
+		&-b#{$prefix} > * {
+			margin-bottom: $size;
+			&:last-child { margin-bottom: 0 }
+		}
+
+		&-l#{$prefix} > * {
+			margin-left: $size;
+			&:last-child { margin-left: 0 }
+		}
+	}
+}
+
+
+
+
+/********************
+* Padding boxes
+*/
+
+.pbox {
+	@each $prefix, $size in $sizes {
+		&-t#{$prefix} > * {
+			padding-top: $size;
+			&:last-child { margin-top: 0 }
+		}
+
+		&-r#{$prefix} > * {
+			padding-right: $size;
+			&:last-child { margin-right: 0 }
+		}
+
+		&-b#{$prefix} > * {
+			padding-bottom: $size;
+			&:last-child { margin-bottom: 0 }
+		}
+
+		&-l#{$prefix} > * {
+			padding-left: $size;
+			&:last-child { margin-left: 0 }
+		}
+	}
+}

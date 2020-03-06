@@ -1,0 +1,57 @@
+@import '../mixins/getColorContrast.scss';
+
+/********************
+* Couleurs
+*/
+
+$color-primary: #3535ff;
+$color-primary__contrast: getColorContrast($color-primary);
+
+$color-secondary: #19194B;
+$color-secondary__contrast: getColorContrast($color-secondary);
+
+$color-tonic1: $color-primary;
+$color-tonic1__contrast: getColorContrast($color-primary);
+
+$color-tonic2: $color-secondary;
+$color-tonic2__contrast: getColorContrast($color-secondary);
+
+$color-success: #41dfa4;
+$color-success__contrast: getColorContrast($color-success);
+
+$color-error: #cc3d3d;
+$color-error__contrast: getColorContrast($color-error);
+
+$color-warning: $color-primary;
+$color-warning__contrast: getColorContrast($color-warning);
+
+$color-info: $color-primary;
+$color-warning__contrast: getColorContrast($color-info);
+
+$bg__color: #f9f9f9;
+
+$text__color: #222222;
+$text__color-contrast: #fff;
+
+$section__color: #fff;
+
+$border__color: #e5e5e5;
+
+
+$colors: (
+	'primary': $color-primary,
+	'secondary': $color-secondary,
+	'tonic1': $color-tonic1,
+	'tonic2': $color-tonic2,
+	'alert': $color-error,
+	'warning': $color-warning
+);
+
+$colorsContrasts: (
+	'primary-c': $color-primary__contrast,
+	'secondary-c': $color-secondary__contrast,
+	'tonic1-c': $color-tonic1__contrast,
+	'tonic2-c': $color-tonic2__contrast,
+	'alert-c': $color-error__contrast,
+	'warning-c': $color-warning__contrast
+);

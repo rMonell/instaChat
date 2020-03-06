@@ -1,0 +1,20 @@
+/********************
+* Media queries
+*/
+
+$media__big: ($site-width__main + $space-l);
+$media__medium: 1320px;
+$media__small: 920px;
+
+
+
+
+/********************
+* Transitions
+*/
+
+$easing__expo: cubic-bezier(1, 0, 0.3, 1);
+
+$delay__long: .6s;
+$delay__regular: .3s;
+$delay__fast: .2s;

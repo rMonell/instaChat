@@ -1,0 +1,88 @@
+.hover {
+    transition: all .3s ease;
+
+    &.slow { transition-delay: 1s }
+    &.fast { transition-delay: .125s }
+
+    &-bg {
+        &-w, &-wd,
+        &-b, &-bl,
+        &-p, &-pl, &-pd,
+        &-s, &-sl, &-sd { @extend .hover }
+
+        &-w:hover { background-color: white }
+        &-wd:hover { background-color: darken(white, 10%) }
+
+        &-b:hover { background-color: black }
+        &-bl:hover { background-color: darken(black, 10%) }
+
+        &-p:hover, &-pl:hover &-pd:hover { color: $color-primary__contrast }
+        &-p:hover { background-color: $color-primary }
+        &-pl:hover { background-color: lighten($color-primary, 10%) }
+        &-pd:hover { background-color: darken($color-primary, 10%) }
+
+        &-s:hover, &-sl:hover &-sd:hover { color: $color-secondary__contrast }
+        &-s:hover { background-color: $color-secondary }
+        &-sl:hover { background-color: lighten($color-secondary, 10%) }
+        &-sd:hover { background-color: darken($color-secondary, 10%) }
+    }
+
+    &-color {
+        &-p, &-s { @extend .hover }
+
+        &-p:hover { color: $color-primary }
+        &-s:hover { color: $color-secondary }
+    }
+
+    &-translate {
+        &-top, &-right, &-bottom, &-left { @extend .hover }
+
+        &-top:hover { transform: translateY(-10px) }
+        &-right:hover { transform: translateX(-10px) }
+        &-bottom:hover { transform: translateY(10px) }
+        &-left:hover { transform: translateX(10px) }
+    }
+
+    &-scale {
+        &-l, &-m, &-s, &-t { @extend .hover }
+
+        &-l:hover { transform: scale(2) }
+        &-m:hover { transform: scale(1.5) }
+        &-s:hover { transform: scale(1.2) }
+        &-t:hover { transform: scale(1.1) }
+    }
+
+    &-zoom {
+        &-l, &-m, &-s, &-t { @extend .hover }
+
+        &-l:hover { background-size: 200% }
+        &-m:hover { background-size: 150% }
+        &-s:hover { background-size: 130% }
+        &-t:hover { background-size: 110% }
+    }
+
+    &-shape {
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+        }
+
+        &-circular {
+
+        }
+
+        &-square {
+
+        }
+
+        &-transfer {
+
+        }
+    }
+}

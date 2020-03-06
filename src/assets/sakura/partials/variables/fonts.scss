@@ -1,0 +1,25 @@
+/********************
+* Polices
+*/
+
+$googlefont-family: '//fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap';
+$font-family__main: 'Poppins', sans-serif;
+
+$icon-family__local: 'Material Icons';
+$icon-family__source: 'MaterialIcons-Regular';
+
+$font-size__hero: 60px;
+$font-size__xl: 40px;
+$font-size__l: 24px;
+$font-size__m: 14px;
+$font-size__s: 12px;
+$font-size__t: 10px;
+
+$fontSizes: (
+    'hero': $font-size__hero,
+    'xl': $font-size__xl,
+    'l': $font-size__l,
+    'm': $font-size__m,
+    's': $font-size__s,
+    't': $font-size__t    
+);

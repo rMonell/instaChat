@@ -1,0 +1,15 @@
+.skr-icon { 
+    font-family: $icon-family__local;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 20px;
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    transition: color $delay__regular ease;
+}
+
+
+svg { font-size: 20px }

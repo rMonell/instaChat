@@ -1,0 +1,54 @@
+/********************
+* Fonts
+*/
+
+@mixin getFontWeights($extend: false, $styles: false) {
+  @for $i from 1 through 9 {
+    $value: $i * 100;
+    
+    &-#{$value} {
+      @if $extend { @extend #{$extend} }
+      font-weight: $value;
+
+      @if $styles {
+        &-normal { font-style: normal }
+        &-italic { font-style: italic }
+        &-oblique { font-style: oblique }
+      }
+    }
+  }
+}
+
+.font {
+  @each $prefix, $size in $fontSizes {
+		&-#{$prefix} {
+      font-size: $size;
+
+      &-normal, &-italic, &-oblique,
+      &-100, &-200, &-300, &-400, &-500, &-600, &-700, &-800, &-900 { @extend .font-#{$prefix} }
+      
+      &-normal {
+        font-style: normal;
+        @include getFontWeights(".font-normal");
+      }
+
+      &-italic {
+        font-style: italic;
+        @include getFontWeights(".font-italic");
+      }
+
+      &-oblique {
+        font-style: oblique;
+        @include getFontWeights(".font-oblique");
+      }
+
+      @include getFontWeights(false, true);
+		}
+  }
+  
+  &-normal { font-style: normal }
+  &-italic { font-style: italic }
+  &-oblique { font-style: oblique }
+
+  @include getFontWeights();
+}

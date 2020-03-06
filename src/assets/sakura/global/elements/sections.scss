@@ -1,0 +1,43 @@
+/********************
+* Blocks / Sections
+*/
+
+.block {
+	position: relative;
+	background-color: $section__color;
+	padding: $space-l;
+	border: $block-border__main;
+	border-radius: $block-border__radius;
+	box-shadow: $block-box__shadow;
+}
+
+.wrapper {
+	max-width: $site-width__main;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $space-m;
+	padding-right: $space-m;
+}
+
+.maincontainer {
+	@include flex-centered(column, stretch, stretch, 'false');
+	position: relative;
+	height: 100vh;
+}
+
+
+
+
+/********************
+* Styles relatifs aux Blocks / Sections
+*/
+
+.bg-covered { @include img-pos(cover, center) }
+
+.content-hidden {
+	overflow: hidden;
+
+	&-x { overflow-x: hidden }
+	&-y { overflow-y: hidden }
+}

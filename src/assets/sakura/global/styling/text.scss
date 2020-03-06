@@ -1,0 +1,81 @@
+/********************
+* Text
+*/
+
+@mixin getTextFeatures($feature) {
+  $transforms: uppercase, capitalize, lowercase;
+  $decorations: underline, wavy, dashed, dotted, double, line-through, overline;
+  $aligns: center, left, right, end, start, justify;
+
+  @if $feature == 'transforms' {
+    @each $transform in $transforms {
+      &-#{$transform} {
+        text-transform: $transform;
+
+        @each $decoration in $decorations {
+          &-#{$decoration} {
+            text-decoration: $decoration;
+            @extend .text-#{$transform};
+
+            @each $align in $aligns {
+              &-#{$align} {
+                text-align: $align;
+                @extend .text-#{$decoration};
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @if $feature == 'decorations' {
+    @each $decoration in $decorations {
+      &-#{$decoration} {
+        text-decoration: $decoration;
+
+        @each $transform in $transforms {
+          &-#{$transform} {
+            text-transform: $transform;
+            @extend .text-#{$decoration};
+
+            @each $align in $aligns {
+              &-#{$align} {
+                text-align: $align;
+                @extend .text-#{$transform};
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @if $feature == 'aligns' {
+    @each $align in $aligns {
+      &-#{$align} {
+        text-align: $align;
+
+        @each $transform in $transforms {
+          &-#{$transform} {
+            text-transform: $transform;
+            @extend .text-#{$align};
+
+            @each $decoration in $decorations {
+              &-#{$decoration} {
+                text-decoration: $decoration;
+                @extend .text-#{$transform};
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.text {
+  @include getTextFeatures('transforms');
+  @include getTextFeatures('decorations');
+  @include getTextFeatures('aligns');
+}

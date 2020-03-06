@@ -1,0 +1,40 @@
+/********************
+* Boutons
+*/
+
+$btn-size__width: 160px;
+$btn-size__height: 35px;
+
+$btn-font__size: $font-size__m;
+$btn-font__weight: 700;
+$btn-font__transform: none;
+
+$btn-border: none;
+$btn-border__radius: $block-border__radius;
+
+$buttons: (
+	'primary': $color-tonic1,
+	'secondary': $color-tonic2,
+	'error': $color-error,
+	'warning': $color-warning
+);
+
+
+
+
+/********************
+* Inputs
+*/
+
+$input-size__width: 400px;
+$input-size__height: 40px;
+
+$input-font__size: $font-size__m;
+
+$input-placeholder__color: #AFAFAF;
+
+$input-border: 1px solid #ccc;
+$input-border__radius: $block-border__radius;
+
+$input__bg: transparent;
+$input__bg-hover: transparent;

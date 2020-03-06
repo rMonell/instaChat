@@ -1,0 +1,47 @@
+.gradient {
+    &-p {
+        &pl {
+            background-image: linear-gradient($color-primary, lighten($color-primary, 10%));
+
+            &-90 { background-image: linear-gradient(90deg, $color-primary, lighten($color-primary, 10%)) }
+            &-45 { background-image: linear-gradient(45deg, $color-primary, lighten($color-primary, 10%)) }
+        }
+
+        &pd {
+            background-image: linear-gradient($color-primary, darken($color-primary, 10%));
+
+            &-90 { background-image: linear-gradient(90deg, $color-primary, darken($color-primary, 10%)) }
+            &-45 { background-image: linear-gradient(45deg, $color-primary, darken($color-primary, 10%)) }
+        }
+
+        &s {
+            background-image: linear-gradient($color-primary, darken($color-secondary, 10%));
+
+            &-90 { background-image: linear-gradient(90deg, $color-primary, darken($color-secondary, 10%)) }
+            &-45 { background-image: linear-gradient(45deg, $color-primary, darken($color-secondary, 10%)) }
+        }
+    }
+
+    &-s {
+        &sl {
+            background-image: linear-gradient($color-secondary, lighten($color-secondary, 10%));
+
+            &-90 { background-image: linear-gradient(90deg, $color-secondary, lighten($color-secondary, 10%)) }
+            &-45 { background-image: linear-gradient(45deg, $color-secondary, lighten($color-secondary, 10%)) }
+        }
+
+        &sd {
+            background-image: linear-gradient($color-secondary, darken($color-secondary, 10%));
+
+            &-90 { background-image: linear-gradient(90deg, $color-secondary, darken($color-secondary, 10%)) }
+            &-45 { background-image: linear-gradient(45deg, $color-secondary, darken($color-secondary, 10%)) }
+        }
+
+        &p {
+            background-image: linear-gradient($color-secondary, darken($color-primary, 10%));
+
+            &-90 { background-image: linear-gradient(90deg, $color-secondary, darken($color-primary, 10%)) }
+            &-45 { background-image: linear-gradient(45deg, $color-secondary, darken($color-primary, 10%)) }
+        }
+    }
+}

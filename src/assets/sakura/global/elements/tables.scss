@@ -1,0 +1,144 @@
+table {
+    border-spacing: 2px;
+
+    th { height: 35px } 
+
+    th, td { font-size: 14px }
+
+    [class^="grab"] {
+        display: flex;
+        cursor: grab;
+    }
+
+    thead {
+        & > tr { display: table-row !important }
+
+        th {
+            position: relative;
+            text-align: center;
+            font-weight: 700;
+            background-color: $color-secondary;
+            color: $color-secondary__contrast;
+            transition: background-color .3s ease;
+
+            span { text-transform: none }
+
+            &:first-child, &:last-child { width: 60px }
+            &:last-child:hover { background-color: lighten($color-secondary, 10%) }
+
+            .row-inner {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            &:nth-child(2) .row-inner {
+                justify-content: flex-start;
+
+                .grab-col { margin-right: initial }
+            }
+
+            .menu { display: flex }
+
+            .grab-col { margin-right: auto }
+
+            .menu { margin-left: auto }
+
+            .resize-col {
+                position: absolute;
+                top: 0;
+                right: -2px;
+                width: 2px;
+                height: 100%;
+                background-color: $color-primary;
+                opacity: 0;
+                cursor: ew-resize;
+                transition: opacity .3s ease;
+
+                &:hover { opacity: 1 }
+            }
+        }
+    } 
+
+    tbody tr {
+        background-color: $color-secondary__contrast;
+        display: table-row !important;
+
+        &:last-child td:not([data-type]) { background-color: #ececec }
+
+        .is-dragged {
+            cursor: grabbing;
+
+            .grab-line, .grab-line svg { transition: none }
+
+            .grab-line {
+                width: 50% !important;
+
+                svg { opacity: 1 !important }
+                
+                & + * { transform: translateX(50%) }
+            }
+        }
+
+        td {
+            position: relative;
+            padding: 0 $space-m;
+            text-align: center;
+            height: 100%;
+
+            &:first-child {
+
+                & > * { transition: all .3s ease }
+
+                .grab-line {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    width: 12%;
+                    color: $color-secondary__contrast;
+                    background-color: $color-secondary;
+                    overflow: hidden;
+
+                    &:hover {
+                        width: 50%;
+
+                        svg { opacity: 1 }
+
+                        & + * { transform: translateX(50%) }
+                    }
+
+                    svg {
+                        opacity: 0;
+                        transition: opacity .3s ease;
+                    }
+                }
+            }
+
+            &:nth-child(2) { text-align: left }
+
+            &[data-type="text"], &[data-type="number"], &[data-type="date"] { padding: 0 }
+
+            &[data-type="text"], &[data-type="number"] {
+                .editable-field {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+    
+                    &:before, &__input:before { border-radius: 0 !important }
+
+                    &__input:focus { background-color: rgba(0, 0, 0, .05) !important }
+    
+                    & > span {
+                        @extend .editable-field;
+                        line-height: $input-size__height;
+                    }
+                }
+            }
+        }
+    }
+}

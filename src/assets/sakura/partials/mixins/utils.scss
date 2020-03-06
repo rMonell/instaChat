@@ -1,0 +1,46 @@
+@mixin flex-centered($dir, $jc, $ai, $wrap) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $jc;
+  align-items: $ai;
+
+  @if $wrap == "true" {
+    flex-wrap: wrap;
+  } @else {
+    flex-wrap: nowrap;
+  }
+}
+
+@mixin img-pos($size, $pos, $repeat: no-repeat) {
+  background-size: $size;
+  background-position: $pos;
+  background-repeat: $repeat;
+}
+
+@mixin absolute-centered($dir) {
+  position: absolute;
+
+  @if $dir == "h" {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else if $dir == "v" {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if $dir == "c" {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin spacer($margin, $padding) {
+  margin: $margin;
+  padding: $padding;
+}
+
+@mixin container($val) {
+  max-width: $val;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}

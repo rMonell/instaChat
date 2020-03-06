@@ -1,0 +1,36 @@
+/********************
+* Tailles globales
+*/ 
+
+$site-width__main: 1480px;
+$site-width__small: 980px;
+
+
+
+
+/********************
+* Blancs tournant
+*/
+
+$space-m: 20px;
+
+
+$space-l: $space-m * 2;
+$space-xl: $space-l * 2;
+
+$space-s: $space-m / 2;
+$space-t: $space-s / 2;
+
+
+$sizes: ('xl': $space-xl, 'l': $space-l , 'm': $space-m, 's': $space-s, 't': $space-t);
+
+
+
+
+/********************
+* Blocks / Sections
+*/
+
+$block-border__radius: 20px;
+$block-border__main: none;
+$block-box__shadow: -6px 10px 40px rgba(0, 0, 0, .06);

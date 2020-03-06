@@ -1,0 +1,147 @@
+/********************
+* Boutons
+*/
+
+.button {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: $btn-size__width;
+	height: $btn-size__height;
+	line-height: $btn-size__height;
+	padding: 0 $space-m;
+	border: $btn-border;
+	border-radius: $btn-border__radius;
+	font-size: $btn-font__size;
+	font-weight: $btn-font__weight;
+	text-transform: $btn-font__transform;
+	cursor: pointer;
+	outline: none;
+	overflow: hidden;
+	transition: all $delay__regular ease;
+
+	& > *:not(.ripple) {
+		color: inherit;
+		text-decoration: none;
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	&.waiting { opacity: .5 }
+
+	@each $name, $color in $buttons {
+		&-#{$name} {
+			@extend .button;
+			background-color: $color;
+			color: getColorContrast($color);
+			
+			&:hover { background-color: darken($color, 10%) }
+		}
+	}
+
+	@each $name, $color in $buttons {
+		&-#{$name}-bordered {
+			@extend .button;
+			border: 1px solid $color;
+			background-color: getColorContrast($color);
+			color: $color;
+			
+			&:hover {
+				background-color: $color;
+				color: getColorContrast($color);
+			}
+		}
+	}
+}
+
+
+
+
+/********************
+* Formulaires
+*/
+
+label {
+	display: inline-block;
+	font-size: $font-size__m;
+	font-weight: 500;
+}
+
+.textfield {
+	padding: 0 $space-m;
+	height: $input-size__height;
+	border: $input-border;
+	background-color: $input__bg;
+	font-size: $input-font__size;
+	outline: none;
+	transition: all $delay__regular ease;
+	
+	&:focus {
+		border-color: $color-primary;
+		box-shadow: 0 0 0 0.2rem rgba($color-primary, .15);
+	}
+
+	&::placeholder { color: $input-placeholder__color }
+}
+
+.form-input {
+	position: relative;
+
+	&.is-focused {
+		& > input { border: 1px solid $color-primary }
+
+		& > label {
+			color: $color-primary;
+			transform: scale(.9) translateY(-50%);
+			top: 0;
+		}
+	}
+
+	& > label {
+		position: absolute;
+		top: 50%;
+		left: $space-m;
+		transform: translateY(-50%);
+		background-color: $bg__color;
+		padding: 0 5px;
+		margin: 0 -5px;
+		z-index: 0;
+		pointer-events: none;
+		transition: color .3s ease, top .3s ease, transform .3s ease;
+	}
+}
+
+.searchbar {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	height: $input-size__height;
+
+	& > input, button {
+		height: 100%;
+		line-height: $input-size__height;
+		outline: none;
+	}
+
+	& > input:not([type="submit"]) {
+		border: none;
+		background-color: #fff;
+		border-top-left-radius: $btn-border__radius;
+		border-bottom-left-radius: $btn-border__radius;
+		padding: $space-m;
+	}
+
+	& > input[type="submit"], button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-top-right-radius: $btn-border__radius;
+		border-bottom-right-radius: $btn-border__radius;
+		min-width: 60px;
+		padding: 0 $space-m;
+		border: $input-border;
+		background-color: $color-primary;
+		color: $color-primary__contrast;
+	}
+}

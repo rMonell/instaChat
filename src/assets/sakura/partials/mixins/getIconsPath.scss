@@ -1,0 +1,21 @@
+@function getIconsPath($prefix, $format: false) {
+  @if ($prefix == 'local') {
+    @return local('partials/icons/sources/#{$format}');
+  }
+
+  @if ($format) {
+     @return url('partials/icons/sources/#{$icon-family__source}.#{$prefix}')  format('#{$format}');
+  } @else {
+    @return url('partials/icons/sources/#{$icon-family__source}.#{$prefix}');
+  }
+}
+
+$paths: (
+  getIconsPath('local', '#{$icon-family__local}'),
+  getIconsPath('local', '#{$icon-family__source}'),
+  getIconsPath('eot', 'embedded-opentype'),
+  getIconsPath('woff2', 'woff2'),
+  getIconsPath('woff', 'woff'),
+  getIconsPath('ttf', 'truetype')
+  // getIconsPath('svg' 'svg')
+);

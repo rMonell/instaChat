@@ -1,0 +1,21 @@
+.border {
+    &-g {
+        border: 1px solid $border__color;
+
+        &-p { border: $color-primary }
+        &-pc { border: $color-primary__contrast }
+
+        &-s { border: $color-secondary }
+        &-sc { border: $color-secondary__contrast }
+    }
+
+    &-t {
+        border-top: 1px solid $border__color;
+
+        &-p { border-color: $color-primary }
+        &-pc { border-color: $color-primary__contrast }
+
+        &-s { border-color: $color-secondary }
+        &-sc { border-color: $color-secondary__contrast }
+    }
+}

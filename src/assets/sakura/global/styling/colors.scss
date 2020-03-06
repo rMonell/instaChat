@@ -1,0 +1,34 @@
+/********************
+* Backgrounds
+*/
+
+@each $name, $color in $colors {
+	.bg-#{$name} {
+		background-color: $color;
+	}
+}
+
+@each $name, $color in $colorsContrasts {
+	.bg-#{$name} {
+		background-color: $color;
+	}
+}
+
+
+
+
+/********************
+* Font colors
+*/
+
+@each $name, $color in $colors {
+	.color-#{$name} {
+		color: $color;
+	}
+}
+
+@each $name, $color in $colorsContrasts {
+	.color-#{$name} {
+		color: $color;
+	}
+}

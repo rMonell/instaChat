@@ -1,0 +1,79 @@
+.columns {
+	@include flex-centered(row, flex-start, stretch, 'true');
+
+	&-sb {
+		margin-left: $space-l * (-1);
+		margin-right: ($space-l / 2) * (-1);
+
+		.col {
+			padding-left: ($space-l / 2);
+			padding-right: ($space-l / 2);
+		}
+	}
+
+	&-sm {
+		margin-left: ($space-m / 2) * (-1);
+		margin-right: ($space-m / 2) * (-1);
+
+		.col {
+			padding-left: ($space-m / 2);
+			padding-right: ($space-m / 2);
+		}
+	}
+
+	&-ss {
+		margin-left: ($space-s / 2) * (-1);
+		margin-right: ($space-s / 2) * (-1);
+
+		.col {
+			padding-left: ($space-s / 2);
+			padding-right: ($space-s / 2);
+		}
+	}
+}
+
+
+
+
+/********************
+* Positionnement
+*/
+
+.c-2 .col {
+	flex: 0 0 50%;
+	max-width: 50%;
+}
+
+.c-3 .col {
+	flex: 0 0 (100% / 3);
+	max-width: (100% / 3);
+}
+
+.c-4 .col {
+	flex: 0 0 25%;
+	max-width: 25%;
+}
+
+.c-5 .col {
+	flex: 0 0 20%;
+	max-width: 20%;
+}
+
+.col {
+	flex: 0 0 100%;
+	max-width: 100%;
+	height: auto;
+
+	&-retract { flex: 0 0 auto }
+	&-extend { flex: 1 0 0 }
+
+	@for $i from 1 through 20 {
+
+		$value: $i * 5;
+
+		&-#{$value} {
+			flex: 0 0 $value * 1%;
+			max-width: $value * 1%;
+		}
+	}
+}

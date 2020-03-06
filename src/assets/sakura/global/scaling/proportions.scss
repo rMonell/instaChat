@@ -1,0 +1,66 @@
+$units: 'vw', 'vh', 'em', 'rem';
+
+.w {
+	@for $i from 1 through 20 {
+		$value: $i * 5;
+
+		&-#{$value} {
+			width: $value * 1%;
+
+			@each $unit in $units {
+				&-#{$unit} { width: #{$value}#{$unit} }
+			}
+		}
+	}
+
+	&-auto { width: auto }
+}
+
+.mw {
+	@for $i from 1 through 20 {
+		$value: $i * 5;
+
+		&-#{$value} {
+			max-width: $value * 1%;
+
+			@each $unit in $units {
+				&-#{$unit} { max-width: #{$value}#{$unit} }
+			}
+		}
+	}
+
+	&-xl { max-width: 1920px }
+	&-l { max-width: 1280px }
+	&-m { max-width: 980px }
+	&-s { max-width: 720px }
+}
+
+.h {
+	@for $i from 1 through 20 {
+		$value: $i * 5;
+
+		&-#{$value} {
+			height: $value * 1%;
+
+			@each $unit in $units {
+				&-#{$unit} { height: #{$value}#{$unit} }
+			}
+		}
+	}
+
+	&-auto { height: auto }
+}
+
+.mh {
+	@for $i from 1 through 20 {
+		$value: $i * 5;
+
+		&-#{$value} {
+			max-height: $value * 1%;
+
+			@each $unit in $units {
+				&-#{$unit} { max-height: $value#{$unit} }
+			}
+		}
+	}
+}
