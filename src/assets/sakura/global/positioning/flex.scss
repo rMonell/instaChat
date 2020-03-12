@@ -91,36 +91,10 @@
 
 		&-between {
 			justify-content: space-between;
-			align-items: space-between;
 
-			&-h, &-v { @extend .flex-row }
-
-			&-h {
-				justify-content: space-between;
-
-				&-center {
-					justify-content: center;
-					align-items: center;
-		
-					&-h, &-v { @extend .flex-row-between-h }
-		
-					&-h { justify-content: center }
-					&-v { align-items: center }
-				}
-			}
-			
-			&-v {
-				align-items: space-between;
-
-				&-center {
-					justify-content: space-between;
-					align-items: space-between;
-		
-					&-h, &-v { @extend .flex-row-between-v }
-		
-					&-h { justify-content: center }
-					&-v { align-items: center }
-				}
+			&-center {
+				@extend .flex-row-between;
+				align-items: center;
 			}
 		}
 

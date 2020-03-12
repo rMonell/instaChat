@@ -7,7 +7,7 @@ const TextField = (props) => {
     const dataFilter = {
         type: (props.type) ? (props.type) : 'text',
         tagName: (props.tagName) ? props.tagName : 'input',
-        className: (props.className) ? formInputClassName + ' ' + props.className : 'form-input',
+        className: (props.className) ? formInputClassName + ' ' + props.className : formInputClassName,
         name: (props.name) ? props.name : 'textFieldName',
         label: (props.label) ? props.label : 'TextField label here',
         value: (props.value) ? props.value : ''

@@ -76,6 +76,16 @@ label {
 	font-size: $input-font__size;
 	outline: none;
 	transition: all $delay__regular ease;
+
+	&.error {
+		border-color: $color-error;
+		box-shadow: 0 0 0 0.2rem rgba($color-error, .15);
+
+		&:focus {
+			border-color: $color-error;
+			box-shadow: 0 0 0 0.2rem rgba($color-error, .15);
+		}
+	}
 	
 	&:focus {
 		border-color: $color-primary;
@@ -110,6 +120,8 @@ label {
 		pointer-events: none;
 		transition: color .3s ease, top .3s ease, transform .3s ease;
 	}
+
+	& > input, & > input.textfield { width: inherit }
 }
 
 .searchbar {
