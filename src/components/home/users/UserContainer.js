@@ -5,7 +5,7 @@ const UserContainer = (props) => {
     const context = useContext(AppContext)
     const [color, setColor] = useState()
 
-    useEffect(() => (props.pseudo === context.user.pseudo) ? setColor('primary') : setColor('secondary'), [props.socket])
+    useEffect(() => (props.pseudo === context.user.pseudo) ? setColor('primary') : setColor('secondary'), [props.pseudo, context.user.pseudo])
 
     return (
         <div color={color} className={'bg-' + color + ' color-' + color + '-c ph-m pv-s rounded-m'}>

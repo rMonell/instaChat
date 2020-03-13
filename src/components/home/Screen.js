@@ -16,9 +16,17 @@ const Screen = (props) => {
 
             navigator.getUserMedia(constraints, stream => {
                 screen.srcObject = stream
-                console.log(stream)
 
-                props.socket.emit('stream', {id: stream.id})
+                const pc = new RTCPeerConnection()
+                const tracks = stream.getTracks()
+
+                pc.ontrack = event => {
+                    console.log('ok')
+                    props.socket.emit('stream', event.stream)
+                }
+
+                tracks.forEach(track => pc.addTrack(track))
+                
                 screen.onloadedmetadata = () => screen.play()
             }, error => console.log(error))
         }

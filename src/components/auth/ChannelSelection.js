@@ -52,7 +52,7 @@ const ChannelSelection = (props) => {
 
     return (context.app.channel !== '') ? <Redirect to={'/' + context.app.channel} /> : (
         <div className="w-100 h-100 flex-row-center">
-            <form onSubmit={handleSubmit} className="bg-primary-c p-l rounded-m">
+            <form onSubmit={handleSubmit} className="bg-primary-c p-l m-m rounded-m">
                 <h1 className="font-l-700 mb-m text-center">Rejoindre un salon</h1>
                 <div className="flex-column mb-m">
                     <label htmlFor="pseudo" ref={channelLabel} className="mb-s text-left font-700">Salon</label>
