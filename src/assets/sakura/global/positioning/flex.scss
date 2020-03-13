@@ -60,31 +60,14 @@
 
 			&-h, &-v { @extend .flex-row }
 
-			&-h {
-				justify-content: center;
-
-				&-between {
-					justify-content: space-between;
-					align-items: space-between;
-		
-					&-h, &-v { @extend .flex-row-center-h }
-		
-					&-h { justify-content: space-between }
-					&-v { align-items: space-between }
-				}
-			}
+			&-h { justify-content: center }
 			
 			&-v {
 				align-items: center;
 
 				&-between {
-					justify-content: space-between;
+					@extend .flex-row-center-v;
 					align-items: space-between;
-		
-					&-h, &-v { @extend .flex-row-center-v }
-		
-					&-h { justify-content: space-between }
-					&-v { align-items: space-between }
 				}
 			}
 		}
@@ -98,7 +81,14 @@
 			}
 		}
 
-		&-around { justify-content: space-around }
+		&-around {
+			justify-content: space-around;
+
+			&-center {
+				@extend .flex-row-around;
+				align-items: center;
+			}
+		}
 	}
 
 	&-column {
@@ -127,13 +117,12 @@
 		}
 
 		&-between {
-			align-items: space-between;
 			justify-content: space-between;
 
-			&-h, &-v { @extend .flex-column }
-
-			&-h { align-items: space-between }
-			&-v { justify-content: space-between }
+			&-center {
+				@extend .flex-row-between;
+				align-items: center;
+			}
 		}
 
 		&-around {

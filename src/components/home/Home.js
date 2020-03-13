@@ -1,32 +1,37 @@
-import React, { useRef, useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Redirect } from 'react-router-dom'
-
 import AppContext from '@context/AppContext'
+
+import ChannelInfos from './ChannelInfos'
+import Users from './users/Users'
+import Screen from './Screen'
 
 const Home = (props) => {
     const context = useContext(AppContext)
-    const streamScreen = useRef()
+    const [screen, setScreen] = useState()
 
     useEffect(() => {
-        const stream = (screenRef) => {
-            navigator.getUserMedia({video: true, audio: true}, stream => {
-                screenRef.srcObject = stream
-                screenRef.onloadedmetadata = event => screenRef.play()
-            }, error => console.log(error))
+        const setBodyScreens = (payload) => {
+            let screens = []
+
+            for (let i = 0; i < payload.length; i++) {
+                if (payload[i].channel === context.app.channel) screens.push(<Screen key={i} socket={props.socket} />)
+            }
+
+            setScreen(screens)
         }
 
-        streamScreen.current !== undefined && stream(streamScreen.current)
-    }, [props.socket])
+        props.socket !== undefined && props.socket.on('new_client', payload => setBodyScreens(payload))
+        props.socket !== undefined && props.socket.on('disconnect', payload => setBodyScreens(payload))
+        
+    }, [props.socket, context.app.channel])
 
     return (context.user.pseudo === '' || context.app.channel === '') ? <Redirect to="/" /> : (
         <div className="w-100 h-100 flex-column-center position-relative">
-            <div className="position-absolute-tl p-l flex-row-between-center w-100">
-                <span className="font-m-700 bg-primary color-primary-c ph-m pv-s rounded-m">{context.app.channel}</span>
-                <span className="font-m-700 color-primary">{context.user.pseudo}</span>
-            </div>
-            
+            <ChannelInfos channel={context.app.channel} socket={props.socket} />
+            <Users channel={context.app.channel} socket={props.socket} />
 
-            <video ref={streamScreen}></video>
+            <div className="flex-row-centered mbox-rl">{screen}</div>
         </div>
     )
 }

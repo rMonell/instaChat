@@ -1,5 +1,5 @@
 import React, { useRef, useContext } from 'react'
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 import AppContext from '@context/AppContext'
 
 import Button from '@superGlobals/Button'
@@ -18,17 +18,20 @@ const ChannelSelection = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
 
+        let channelValue = channel.current.value
+        let pseudoValue = pseudo.current.value
+
         inputChecker(channel, channelLabel)
         inputChecker(pseudo, pseudoLabel)
 
-        if (pseudo.current.value !== '' && channel.current.value !== '') {
-            context.user.setPseudo(pseudo.current.value)
-            context.app.setChannel(channel.current.value)
+        if (pseudoValue !== '' && channelValue !== '') {
+            context.user.setPseudo(pseudoValue)
+            context.app.setChannel(channelValue)
     
-            props.socket.emit('new_channel', context.app.channel)
-            props.socket.emit('new_client', {pseudo: context.user.pseudo, channel: context.app.channel})
+            props.socket.emit('new_channel', channelValue)
+            props.socket.emit('new_client', {pseudo: pseudoValue, channel: channelValue})
     
-            history.push('/' + channel.current.value)
+            history.push('/' + channelValue)
         }
     }
 
@@ -47,9 +50,9 @@ const ChannelSelection = (props) => {
         }
     }
 
-    return (
+    return (context.app.channel !== '') ? <Redirect to={'/' + context.app.channel} /> : (
         <div className="w-100 h-100 flex-row-center">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="bg-primary-c p-l rounded-m">
                 <h1 className="font-l-700 mb-m text-center">Rejoindre un salon</h1>
                 <div className="flex-column mb-m">
                     <label htmlFor="pseudo" ref={channelLabel} className="mb-s text-left font-700">Salon</label>
